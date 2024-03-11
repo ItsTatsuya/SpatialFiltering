@@ -1,7 +1,8 @@
-from PSNR import calcPSNR
 from GaussianNoise import addGaussianNoise
 from averageFilter import averageFilter
 from gaussianFilter import gaussianFilter
+import laplacianFilter
+from PSNR import calcPSNR
 
 import cv2
 import numpy as np
@@ -16,31 +17,57 @@ cv2.imshow('Original Image', image)
 noisy = addGaussianNoise(image, 0, 25)
 cv2.imshow('Gaussian Noise', noisy)
 
-print("PSNR value for Gaussian Noise:", calcPSNR(image, noisy))
+print("PSNR value for Gaussian Noise:", cv2.PSNR(image, noisy))
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
+kernelSize = [3, 5, 7, 9, 11, 13, 15]
+
 # Averaging Filter
-print ("Averaging Filter")
-while True:
-    kernelSize = int(input("Enter the kernel size (odd number): "))
-    filtered = averageFilter(noisy, kernelSize)
-    cv2.imshow(f'Averaging Filter | Size: {kernelSize}', filtered)
-    print("PSNR value for Averaging Filter [",kernelSize,"]:", calcPSNR(image, filtered))
+print ("\nAveraging Filter")
+for size in kernelSize:
+    filtered = averageFilter(noisy, size)
+    cv2.imshow(f'Averaging Filter | Size: {size}', filtered)
+    print("PSNR value for Averaging Filter [",size,"]:", calcPSNR(image, filtered))
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-    if input("Do you want to continue? (y/n): ") == 'n':
-        break
     
 # Gaussian Filter
-print ("Gaussian Filter")
-while True:
-    kernelSize = int(input("Enter the kernel size (odd number): "))
-    filtered = gaussianFilter(noisy, kernelSize)
-    cv2.imshow(f'Gaussian Filter | Size: {kernelSize}', filtered)
-    print("PSNR value for Gaussian Filter [",kernelSize,"]:", calcPSNR(image, filtered))
+print ("\nGaussian Filter")
+for size in kernelSize:
+    filtered = gaussianFilter(noisy, size)
+    cv2.imshow(f'Gaussian Filter | Size: {size}', filtered)
+    print("PSNR value for Gaussian Filter [",size,"]:", calcPSNR(image, filtered))
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-    if input("Do you want to continue? (y/n): ") == 'n':
-        break
+    
+# Laplacian Filter
+print ("\nLaplacian Filter")
+filtered = laplacianFilter.laplacianFilter1(noisy)
+cv2.imshow('Laplacian Filter 1', filtered)
+cv2.imshow('Discontinuity Map', laplacianFilter.discontinuityMap(noisy))
+print("PSNR value for Laplacian Filter 1:", calcPSNR(image, filtered))
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+filtered = laplacianFilter.laplacianFilter2(noisy)
+cv2.imshow('Laplacian Filter 2', filtered)
+cv2.imshow('Discontinuity Map', laplacianFilter.discontinuityMap(noisy))
+print("PSNR value for Laplacian Filter 2:", calcPSNR(image, filtered))
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+filtered = laplacianFilter.laplacianFilter3(noisy)
+cv2.imshow('Laplacian Filter 3', filtered)
+print("PSNR value for Laplacian Filter 3:", calcPSNR(image, filtered))
+cv2.imshow('Discontinuity Map', laplacianFilter.discontinuityMap(noisy))
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+filtered = laplacianFilter.laplacianFilter4(noisy)
+cv2.imshow('Laplacian Filter 4', filtered)
+print("PSNR value for Laplacian Filter 4:", calcPSNR(image, filtered))
+cv2.imshow('Discontinuity Map', laplacianFilter.discontinuityMap(noisy))
+cv2.waitKey(0)
+cv2.destroyAllWindows()
