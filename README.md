@@ -134,37 +134,37 @@
   <div style="display: flex; justify-content: space-between;">
     <div style="flex: 0 0 48%;">
       <img src="results/laplacian1.png" alt="Laplacian Filter 1" style="width: 100%;">
-      <p>PSNR Value: 7.642565281014162</p>
     </div>
     <div style="flex: 0 0 48%;">
       <img src="results/laplacian1_dis.png" alt="Discontinuity Map 1" style="width: 100%;">
+      <p>PSNR Value: 7.642565281014162</p>
     </div>
   </div>
   <div style="display: flex; justify-content: space-between;">
     <div style="flex: 0 0 48%;">
       <img src="results/laplacian2.png" alt="Laplacian Filter 2" style="width: 100%;">
-      <p>PSNR Value: 6.432201648386924</p>
     </div>
     <div style="flex: 0 0 48%;">
       <img src="results/laplacian2_dis.png" alt="Discontinuity Map 2" style="width: 100%;">
+      <p>PSNR Value: 6.432201648386924</p>
     </div>
   </div>
   <div style="display: flex; justify-content: space-between;">
     <div style="flex: 0 0 48%;">
       <img src="results/laplacian3.png" alt="Laplacian Filter 3" style="width: 100%;">
-      <p>PSNR Value: 7.4557307035857345</p>
     </div>
     <div style="flex: 0 0 48%;">
       <img src="results/laplacian3_dis.png" alt="Discontinuity Map 3" style="width: 100%;">
+      <p>PSNR Value: 7.4557307035857345</p>
     </div>
   </div>
   <div style="display: flex; justify-content: space-between;">
     <div style="flex: 0 0 48%;">
       <img src="results/laplacian4.png" alt="Laplacian Filter 4" style="width: 100%;">
-      <p>PSNR Value: 9.239515678118183</p>
     </div>
     <div style="flex: 0 0 48%;">
       <img src="results/laplacian4_dis.png" alt="Discontinuity Map 4" style="width: 100%;">
+      <p>PSNR Value: 9.239515678118183</p>
     </div>
   </div>
 </details>
